@@ -23,9 +23,9 @@
 * **一屏管理全部 55 个扩展槽（`C-10`～`C-64`）**：
   * 5 列紧凑胶囊矩阵，同屏查看全部照片 / 视频通道槽位，支持 **双通道同步** 或分通道独立管理，可切换 **C64 / C32** 容量上限。
   * **行内快捷操作**：设开机默认（`★`）、改名（`✎` 或直接双击名称，1–19 个 ASCII 字符）、拖拽卡片互换位置（或点击 `⇄` 移动/复制/互换）、清空/删除（`×`，自动写入同步索引，断电重启不复活）。
-* **内置 34 款 MIT 开源胶片预设 + 本地 `.NP3` / `.cube` 直拖**：
+* **内置 34 款 MIT 开源胶片预设 + 批量导入 `.NP3` / `.cube` / `.zip` / 文件夹**：
   * 支持 **「⚡ 一键灌入 34 款」** 或 **「填入当前列表到空槽」**（自动跳过已有滤镜，保留原槽位），附带逐批写入进度动画与写卡状态提示。
-  * 直接把本地 `.NP3` 或 `.cube` 3D LUT 拖到任意槽位或右侧素材库，`.cube` 会在浏览器本地自动拟合转换为 Nikon Flexible Color `0310` `.NP3` 后写入槽位（由同源项目 [`lut-to-np3`](https://github.com/YCX81/lut-to-np3) 拟合引擎驱动）。
+  * 支持 **「＋ 批量导入 .NP3」**（多选文件）、**「📁 导入文件夹」**（递归读取文件夹内全部 `.NP3` / `.cube`）、以及直接将多个 `.NP3` / `.cube` / `.zip` 滤镜包或整个文件夹拖到左侧槽位面板任意空白处一键批量填入空槽（自动跳过 macOS `._*` 隐藏文件并按文件名自然排序；`.cube` 在浏览器本地自动拟合为 Flexible Color `0310` `.NP3`）。
 * **标准 `.NP3` 打包导出**：点击右下角 **「↓ 导出 .NP3」** 可将卡中已有或当前筛选的滤镜一键打包为标准 `NIKON/CUSTOMPC/PICCON01.NP3`～`PICCON99.NP3` + `SLOT-MAP.txt`，兼容尼康工坊（NX Studio）及支持 Flexible Color 的原厂尼康机身。
 
 ### 使用方法
@@ -88,9 +88,9 @@ No USB drivers, bridge daemons, or CLI required: launch directly via **[GitHub P
 * **All 55 Extended Slots (`C-10`–`C-64`) on One Screen**:
   * Compact 5-column pill grid for Photo & Video banks with **Sync Both** or independent per-bank editing, plus **C64 / C32** slot capacity selector.
   * **Inline Micro-Actions**: Set boot default (`★`), double-click or click `✎` to rename (`1–19` ASCII chars), drag-and-drop cards to swap (or click `⇄` to move/copy/swap), and delete (`×`, updates the `sc*.rec` generation index cleanly).
-* **34 Built-in MIT-Licensed Film Presets + Local `.NP3` / `.cube` Drop-In**:
+* **34 Built-in MIT-Licensed Film Presets + Batch `.NP3` / `.cube` / `.zip` / Folder Import**:
   * Click **⚡ Fill 34 Looks** or **Fill Filtered to Empty Slots** (preserves existing slots automatically) with smooth animated staging & card-write progress feedback.
-  * Drop any local `.NP3` or `.cube` 3D LUT onto any slot or the library panel — `.cube` LUTs are automatically fitted into Nikon Flexible Color `0310` `.NP3` locally in the browser (powered by [`lut-to-np3`](https://github.com/YCX81/lut-to-np3)).
+  * Batch import via **＋ Batch .NP3** (multi-file select), **📁 Import Folder** (recursively scans folders for `.NP3` / `.cube` files), or drag-and-drop multiple `.NP3` / `.cube` / `.zip` packs or an entire folder anywhere onto the slot panel (auto-sorts naturally, skips macOS `._*` junk files, and fits `.cube` LUTs to Flexible Color `0310` `.NP3` locally via [`lut-to-np3`](https://github.com/YCX81/lut-to-np3)).
 * **Standard `.NP3` Pack Export**: Click **↓ Export .NP3** to export active slots or filtered library items as standard `NIKON/CUSTOMPC/PICCON01.NP3`–`PICCON99.NP3` + `SLOT-MAP.txt`, compatible with **Nikon NX Studio** and stock Flexible Color Nikon bodies.
 
 ### Quick Start

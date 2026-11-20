@@ -9,21 +9,33 @@
   --ink:#232726;--muted:#707774;--paper:#f5f4ef;--line:#dddfd8;
   --orange:#bf4e2c;--orange-soft:#f9ece6;--green:#325e49;--green-soft:#ebf3ed;
   --white:#fffefa;--err:#b73521;--err-soft:#fdebe8;
+  --gutter:clamp(14px,1.8vw,32px);
+  --maxw:100%;
 }
-body{margin:0;background:var(--paper);color:var(--ink);font:13.5px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+html,body{height:100%}
+body{
+  margin:0;min-height:100dvh;display:flex;flex-direction:column;
+  background:var(--paper);color:var(--ink);
+  font:13.5px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;
+}
 button,input,select{font:inherit}
 button,label.file-btn,label.drop-btn{cursor:pointer}
 button:disabled,input:disabled,select:disabled{cursor:not-allowed;opacity:.45}
 button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #da9c7a;outline-offset:1px}
 
-header{max-width:1440px;margin:auto;padding:11px 28px;min-height:56px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);gap:12px;flex-wrap:wrap}
+header{
+  width:100%;max-width:var(--maxw);margin:0 auto;flex-shrink:0;
+  padding:clamp(9px,1.1vh,15px) var(--gutter);min-height:56px;
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid var(--line);gap:12px;flex-wrap:wrap;
+}
 .brand{display:flex;gap:11px;align-items:center;flex-wrap:wrap}
 .mark{font:700 14px/30px Georgia,serif;background:var(--ink);color:var(--paper);padding:0 8px;border-radius:5px;letter-spacing:.5px;user-select:none}
 .mark span{color:#ee9475;font:10px sans-serif;margin-left:2px;vertical-align:middle}
-.brand-text strong{font-size:15px;letter-spacing:.2px;display:block;line-height:1.2}
-.brand-text small{display:block;color:var(--muted);font-size:11px}
+.brand-text strong{font-size:clamp(14.5px,1vw,17px);letter-spacing:.2px;display:block;line-height:1.2}
+.brand-text small{display:block;color:var(--muted);font-size:clamp(11px,0.75vw,12.5px)}
 
-.card-pill{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:99px;border:1px solid var(--line);background:var(--white);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;margin-left:4px}
+.card-pill{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:99px;border:1px solid var(--line);background:var(--white);font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;margin-left:4px}
 .card-pill .dot{width:7px;height:7px;border-radius:50%;background:#b6bbb5;flex-shrink:0}
 .card-pill.rw{border-color:#adc8b6;background:var(--green-soft);color:var(--green);font-weight:600}
 .card-pill.rw .dot{background:var(--green);box-shadow:0 0 0 3px #325e491f}
@@ -31,7 +43,7 @@ header{max-width:1440px;margin:auto;padding:11px 28px;min-height:56px;display:fl
 .card-pill.ro .dot{background:#d4822a}
 
 .header-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.btn{border:1px solid var(--line);background:var(--white);color:var(--ink);padding:6px 12px;border-radius:6px;font-size:12px;font-weight:500;display:inline-flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap;transition:background .12s,border-color .12s}
+.btn{border:1px solid var(--line);background:var(--white);color:var(--ink);padding:6px 12px;border-radius:6px;font-size:clamp(12px,0.8vw,13px);font-weight:500;display:inline-flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap;transition:background .12s,border-color .12s}
 .btn:hover:not(:disabled){background:#f1f0ea;border-color:#c6c9c0}
 .btn.primary{background:var(--ink);color:var(--white);border-color:var(--ink)}
 .btn.primary:hover:not(:disabled){filter:brightness(1.12);background:var(--ink)}
@@ -39,23 +51,34 @@ header{max-width:1440px;margin:auto;padding:11px 28px;min-height:56px;display:fl
 .btn.accent:hover:not(:disabled){filter:brightness(1.08);background:var(--orange)}
 .btn.danger{border-color:#e2b5ad;background:var(--err-soft);color:var(--err)}
 .btn.danger:hover:not(:disabled){background:#fadad4}
-.btn.sm{padding:4px 10px;font-size:11.5px;border-radius:5px;height:29px}
+.btn.sm{padding:4px 10px;font-size:clamp(11.5px,0.78vw,12.5px);border-radius:5px;height:clamp(29px,2.8vh,34px)}
 
-.lang-switch{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--white);height:29px}
-.lang-opt{border:0;background:transparent;color:var(--muted);font-size:11px;padding:0 9px;font-weight:500}
+.lang-switch{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--white);height:clamp(29px,2.8vh,34px)}
+.lang-opt{border:0;background:transparent;color:var(--muted);font-size:11.5px;padding:0 10px;font-weight:500}
 .lang-opt+.lang-opt{border-left:1px solid var(--line)}
 .lang-opt.active{background:var(--ink);color:var(--white)}
 
 .file-btn,.drop-btn{position:relative;overflow:hidden}
 .file-btn input,.drop-btn input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
 
-main{max-width:1440px;margin:auto;padding:16px 28px 28px}
-.workspace{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:20px;align-items:start}
-.panel{background:var(--white);border:1px solid var(--line);border-radius:10px}
+main{
+  width:100%;max-width:var(--maxw);margin:0 auto;flex:1;min-height:0;
+  padding:clamp(12px,1.5vh,22px) var(--gutter) clamp(14px,1.8vh,24px);
+  display:flex;flex-direction:column;
+}
+.workspace{
+  flex:1;min-height:0;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) clamp(320px,24vw,460px);
+  gap:clamp(14px,1.5vw,24px);
+  align-items:stretch;
+}
+.panel{background:var(--white);border:1px solid var(--line);border-radius:10px;transition:border-color .15s,box-shadow .15s}
+.panel.panel-drag{border-color:var(--orange);box-shadow:inset 0 0 0 2px var(--orange-soft),0 0 0 2px #bf4e2c26}
 
 /* Left Panel */
-.slots-panel{padding:14px 16px}
-.toolbar-row{position:relative;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;min-height:34px;padding-bottom:11px;margin-bottom:11px;border-bottom:1px solid var(--line)}
+.slots-panel{padding:clamp(12px,1.3vw,20px);display:flex;flex-direction:column;min-height:0}
+.toolbar-row{position:relative;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;min-height:36px;padding-bottom:clamp(10px,1.1vh,14px);margin-bottom:clamp(10px,1.1vh,14px);border-bottom:1px solid var(--line);flex-shrink:0}
 .tb-left{display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-width:0;flex:1}
 .tb-right{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 
@@ -72,26 +95,35 @@ main{max-width:1440px;margin:auto;padding:16px 28px 28px}
 .btn.is-busy{opacity:.92!important;cursor:progress!important}
 .btn.is-busy::before{content:"";width:11px;height:11px;border-radius:50%;border:1.8px solid rgba(255,255,255,.38);border-top-color:#fff;animation:spin-ring .65s linear infinite;flex-shrink:0}
 
-.seg-tabs{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#f4f3ee;height:29px}
-.seg-btn{border:0;background:transparent;padding:0 12px;font-size:12px;color:var(--muted);font-weight:550}
+.seg-tabs{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#f4f3ee;height:clamp(29px,2.8vh,34px)}
+.seg-btn{border:0;background:transparent;padding:0 12px;font-size:clamp(12px,0.8vw,13px);color:var(--muted);font-weight:550}
 .seg-btn.active{background:var(--ink);color:var(--white)}
 
-.sync-check{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:var(--ink);cursor:pointer;user-select:none;white-space:nowrap}
+.sync-check{display:inline-flex;align-items:center;gap:5px;font-size:clamp(11.5px,0.78vw,12.5px);color:var(--ink);cursor:pointer;user-select:none;white-space:nowrap}
 .sync-check input{accent-color:var(--orange);cursor:pointer;margin:0}
 
-.usage-badge{font:600 11px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);background:#f3f2ec;border:1px solid var(--line);border-radius:99px;padding:2px 8px;white-space:nowrap}
-.status-inline{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:440px}
+.usage-badge{font:600 clamp(11px,0.75vw,12px) ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);background:#f3f2ec;border:1px solid var(--line);border-radius:99px;padding:2px 9px;white-space:nowrap}
+.status-inline{display:inline-flex;align-items:center;gap:6px;font-size:clamp(11.5px,0.78vw,12.5px);color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:clamp(220px,30vw,680px)}
 .status-inline.busy{color:var(--orange);font-weight:550}
 .status-inline.busy::before{content:"";width:11px;height:11px;border-radius:50%;border:1.8px solid #e7c2b3;border-top-color:var(--orange);animation:spin-ring .65s linear infinite;flex-shrink:0}
 .status-inline.ok{color:var(--green);font-weight:550}
 .status-inline.error{color:var(--err);font-weight:550}
 
-/* 5-Column Compact 36px Pill Grid */
-.slot-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+/* Viewport-Adaptive 5x11 Slot Matrix (scales cleanly from 720p laptop to 4K monitor) */
+.slot-grid{
+  flex:1;min-height:0;
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  grid-auto-rows:clamp(36px,calc((100dvh - 290px) / 11),94px);
+  gap:clamp(6px,0.9vh,14px) clamp(6px,0.7vw,14px);
+  align-content:start;
+  overflow-y:auto;
+}
 .slot-card{
   --card-bg:var(--white);
-  height:36px;padding:0 8px;border:1px solid var(--line);border-radius:6px;
-  background:var(--card-bg);display:flex;align-items:center;gap:6px;
+  height:100%;min-height:36px;padding:0 clamp(8px,0.75vw,14px);
+  border:1px solid var(--line);border-radius:clamp(6px,0.5vw,8px);
+  background:var(--card-bg);display:flex;align-items:center;gap:clamp(6px,0.55vw,10px);
   position:relative;overflow:hidden;cursor:pointer;
   transition:border-color .12s,background .12s,box-shadow .12s;
 }
@@ -104,18 +136,18 @@ main{max-width:1440px;margin:auto;padding:16px 28px 28px}
 .slot-card.drag-over{--card-bg:var(--orange-soft);border-color:var(--orange);border-style:solid}
 .slot-card.locked{opacity:.42;background:repeating-linear-gradient(-45deg,#f3f3ee,#f3f3ee 4px,#e8e9e3 4px,#e8e9e3 8px);cursor:default;pointer-events:none}
 
-.sc-num{font:600 10.5px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);flex-shrink:0;letter-spacing:-.2px}
+.sc-num{font:600 clamp(10.5px,0.78vw,13px) ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);flex-shrink:0;letter-spacing:-.2px}
 .slot-card.occupied .sc-num{color:var(--green)}
 .slot-card.focused .sc-num{color:var(--orange)}
-.active-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
+.active-dot{width:clamp(6px,0.45vw,8px);height:clamp(6px,0.45vw,8px);border-radius:50%;background:var(--green);flex-shrink:0}
 
-.sc-name{flex:1;min-width:0;font:550 12px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sc-dash{flex:1;font-size:11px;color:#b2b8b2;user-select:none}
+.sc-name{flex:1;min-width:0;font:550 clamp(12px,0.88vw,14.5px) ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sc-dash{flex:1;font-size:11.5px;color:#b2b8b2;user-select:none}
 
 .sc-actions{
-  position:absolute;right:4px;top:0;bottom:0;
-  display:flex;align-items:center;gap:2px;
-  padding-left:18px;
+  position:absolute;right:clamp(4px,0.45vw,8px);top:0;bottom:0;
+  display:flex;align-items:center;gap:3px;
+  padding-left:20px;
   background:linear-gradient(90deg,transparent,var(--card-bg) 16px);
   opacity:0;pointer-events:none;transition:opacity .1s;
 }
@@ -123,59 +155,59 @@ main{max-width:1440px;margin:auto;padding:16px 28px 28px}
 
 .ic-btn{
   border:1px solid transparent;background:transparent;color:var(--muted);
-  height:22px;min-width:22px;padding:0 4px;border-radius:4px;
-  font-size:11px;line-height:1;display:inline-flex;align-items:center;justify-content:center;
+  height:clamp(22px,2.2vh,28px);min-width:clamp(22px,2.2vh,28px);padding:0 5px;border-radius:4px;
+  font-size:clamp(11px,0.8vw,13px);line-height:1;display:inline-flex;align-items:center;justify-content:center;
 }
 .ic-btn:hover{background:#ecebe3;color:var(--ink)}
 .ic-btn.on{color:var(--green);font-weight:700}
-.ic-btn.fill{color:var(--orange);background:var(--orange-soft);border-color:#e8c4b5;font-size:10.5px;padding:0 6px;font-weight:600}
+.ic-btn.fill{color:var(--orange);background:var(--orange-soft);border-color:#e8c4b5;font-size:clamp(10.5px,0.75vw,12px);padding:0 7px;font-weight:600}
 .ic-btn.fill:hover{background:var(--orange);color:var(--white);border-color:var(--orange)}
 .ic-btn.del:hover{background:var(--err-soft);color:var(--err)}
 
-.rename-row{display:flex;align-items:center;gap:3px;flex:1;min-width:0}
-.rename-input{flex:1;min-width:0;height:24px;padding:0 6px;border:1px solid var(--orange);border-radius:4px;font:11.5px ui-monospace,SFMono-Regular,Menlo,monospace;background:#fff;color:var(--ink)}
+.rename-row{display:flex;align-items:center;gap:4px;flex:1;min-width:0}
+.rename-input{flex:1;min-width:0;height:clamp(24px,2.4vh,30px);padding:0 7px;border:1px solid var(--orange);border-radius:4px;font:clamp(11.5px,0.82vw,13.5px) ui-monospace,SFMono-Regular,Menlo,monospace;background:#fff;color:var(--ink)}
 
 /* Quiet Left Panel Footer */
-.panel-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:11px;padding-top:10px;border-top:1px solid #eceee7;font-size:11px;color:var(--muted)}
+.panel-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:clamp(10px,1.1vh,14px);padding-top:clamp(9px,1vh,13px);border-top:1px solid #eceee7;font-size:clamp(11px,0.76vw,12px);color:var(--muted);flex-shrink:0}
 .foot-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .filter-pills{display:inline-flex;gap:4px}
-.chip{border:1px solid var(--line);background:#f7f6f1;color:var(--muted);font-size:11px;padding:2px 9px;border-radius:99px}
+.chip{border:1px solid var(--line);background:#f7f6f1;color:var(--muted);font-size:clamp(11px,0.75vw,12px);padding:2px 10px;border-radius:99px}
 .chip.active{border-color:var(--ink);background:var(--ink);color:var(--white);font-weight:600}
-.mini-select{border:1px solid var(--line);background:#fff;color:var(--ink);font-size:11px;padding:2px 7px;border-radius:5px;height:24px}
+.mini-select{border:1px solid var(--line);background:#fff;color:var(--ink);font-size:clamp(11px,0.75vw,12px);padding:2px 8px;border-radius:5px;height:26px}
 
-/* Right Compact Library Panel */
-.lib-panel{padding:14px;display:flex;flex-direction:column;gap:9px}
-.lib-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
-.lib-head h2{font-size:14px;margin:0}
-.target-hint{font-size:11px;color:var(--orange);font-weight:600;font-variant-numeric:tabular-nums}
+/* Right Adaptive Library Panel */
+.lib-panel{padding:clamp(12px,1.3vw,18px);display:flex;flex-direction:column;gap:clamp(8px,1vh,12px);min-height:0}
+.lib-head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-shrink:0}
+.lib-head h2{font-size:clamp(14px,0.95vw,16px);margin:0}
+.target-hint{font-size:clamp(11px,0.78vw,12.5px);color:var(--orange);font-weight:600;font-variant-numeric:tabular-nums}
 
-.lib-filter-row{display:grid;grid-template-columns:138px minmax(0,1fr);gap:6px}
-.lib-filter-row select,.lib-filter-row input{height:30px;padding:0 8px;border:1px solid var(--line);border-radius:6px;font-size:11.5px;background:#fff;color:var(--ink);min-width:0}
+.lib-filter-row{display:grid;grid-template-columns:minmax(130px,44%) minmax(0,1fr);gap:6px;flex-shrink:0}
+.lib-filter-row select,.lib-filter-row input{height:clamp(30px,2.9vh,36px);padding:0 9px;border:1px solid var(--line);border-radius:6px;font-size:clamp(11.5px,0.8vw,12.5px);background:#fff;color:var(--ink);min-width:0}
 
-.lib-list{height:396px;overflow-y:auto;border:1px solid var(--line);border-radius:7px;background:var(--white)}
-.lib-item{height:33px;padding:0 9px;border-bottom:1px solid #f0f1eb;display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;transition:background .1s}
+.lib-list{flex:1;min-height:240px;max-height:calc(100dvh - 255px);overflow-y:auto;border:1px solid var(--line);border-radius:7px;background:var(--white)}
+.lib-item{min-height:clamp(33px,3.2vh,42px);padding:4px 10px;border-bottom:1px solid #f0f1eb;display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;transition:background .1s}
 .lib-item:last-child{border-bottom:0}
 .lib-item:hover{background:#f7f6f0}
 .lib-item.active{background:var(--orange-soft)}
 .lib-main{display:flex;align-items:center;gap:6px;min-width:0;flex:1}
-.lib-title{font-size:12px;font-weight:550;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.in-cam-pill{font:600 9.5px ui-monospace,SFMono-Regular,Menlo,monospace;padding:1px 5px;border-radius:99px;background:var(--green-soft);color:var(--green);flex-shrink:0}
+.lib-title{font-size:clamp(12px,0.84vw,13.5px);font-weight:550;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.in-cam-pill{font:600 10px ui-monospace,SFMono-Regular,Menlo,monospace;padding:1px 6px;border-radius:99px;background:var(--green-soft);color:var(--green);flex-shrink:0}
 
 .lib-right{display:flex;align-items:center;flex-shrink:0}
-.lib-camname{font:10.5px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted)}
-.lib-put{display:none;border:1px solid #e4bfb0;background:#fff8f5;color:var(--orange);font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:4px}
+.lib-camname{font:clamp(10.5px,0.74vw,12px) ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted)}
+.lib-put{display:none;border:1px solid #e4bfb0;background:#fff8f5;color:var(--orange);font-size:clamp(10.5px,0.75vw,12px);font-weight:600;padding:2px 8px;border-radius:4px}
 .lib-item:hover .lib-camname,.lib-item.active .lib-camname{display:none}
 .lib-item:hover .lib-put,.lib-item.active .lib-put{display:inline-flex}
 .lib-put:hover{background:var(--orange);color:var(--white);border-color:var(--orange)}
 
-.lib-foot{display:flex;flex-direction:column;gap:7px}
-.drop-btn{height:32px;border:1px dashed #c4c9be;border-radius:6px;background:#faf9f4;display:flex;align-items:center;justify-content:center;font-size:11.5px;color:var(--muted);transition:border-color .15s,background .15s,color .15s}
+.lib-foot{display:flex;flex-direction:column;gap:7px;flex-shrink:0}
+.drop-btn{min-height:clamp(32px,3.1vh,38px);padding:4px 10px;border:1px dashed #c4c9be;border-radius:6px;background:#faf9f4;display:flex;align-items:center;justify-content:center;font-size:clamp(11.5px,0.78vw,12.5px);color:var(--muted);transition:border-color .15s,background .15s,color .15s;text-align:center}
 .drop-btn:hover,.drop-btn.drag{border-color:var(--orange);background:var(--orange-soft);color:var(--orange)}
 .lib-actions{display:flex;gap:6px;align-items:center}
 
 /* Lightweight Modal */
 .modal-backdrop{position:fixed;inset:0;background:rgba(30,34,33,.4);display:grid;place-items:center;z-index:50;padding:16px}
-.modal{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:18px 20px;width:100%;max-width:360px;box-shadow:0 14px 36px rgba(0,0,0,.15)}
+.modal{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:18px 20px;width:100%;max-width:380px;box-shadow:0 14px 36px rgba(0,0,0,.15)}
 .modal h3{margin:0 0 6px;font-size:14.5px}
 .modal p{margin:0 0 11px;font-size:12px;color:var(--muted);line-height:1.5}
 .modal .field{display:flex;flex-direction:column;gap:4px;margin-bottom:10px;font-size:11.5px;color:var(--muted)}
@@ -184,16 +216,23 @@ main{max-width:1440px;margin:auto;padding:16px 28px 28px}
 
 [hidden]{display:none!important}
 
-@media(max-width:1240px){
-  .slot-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+/* Medium Laptops & Narrower Desktops */
+@media(max-width:1280px){
+  .workspace{grid-template-columns:minmax(0,1fr) clamp(290px,28vw,340px)}
+  .slot-grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(36px,calc((100dvh - 290px) / 14),52px)}
 }
-@media(max-width:1020px){
-  .workspace{grid-template-columns:1fr}
-  .lib-list{height:280px}
+/* Tablets / Split-Screen Windows */
+@media(max-width:980px){
+  body{min-height:auto;display:block}
+  main{display:block;flex:none}
+  .workspace{grid-template-columns:1fr;align-items:start}
+  .slot-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:40px;overflow:visible}
+  .lib-list{height:300px;max-height:none;flex:none}
 }
-@media(max-width:720px){
-  header,main{padding-left:14px;padding-right:14px}
-  .slot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+/* Phones */
+@media(max-width:640px){
+  header,main{padding-left:12px;padding-right:12px}
+  .slot-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:38px}
   .status-inline{max-width:100%;white-space:normal}
 }
 </style>
@@ -221,8 +260,8 @@ main{max-width:1440px;margin:auto;padding:16px 28px 28px}
 
 <main>
   <div class="workspace">
-    <!-- Left Panel: Compact 5x11 Slot Matrix -->
-    <section class="panel slots-panel">
+    <!-- Left Panel: Viewport-Adaptive Slot Matrix -->
+    <section class="panel slots-panel" id="slotsPanel">
       <div class="toolbar-row">
         <div class="tb-left">
           <div class="seg-tabs" role="tablist">
@@ -239,10 +278,11 @@ main{max-width:1440px;margin:auto;padding:16px 28px 28px}
 
         <div class="tb-right">
           <button type="button" class="btn sm accent" id="btnQuickFill50" data-i18n="quick50Btn">⚡ 一键灌入全部预设</button>
-          <label class="btn sm file-btn">
-            <span data-i18n="importFilesBtn">＋ 导入文件</span>
-            <input type="file" id="slotFilesInput" accept=".np3,.cube,.rec" multiple>
+          <label class="btn sm file-btn" title="可多选 .NP3 / .cube / .zip / .rec 文件批量导入">
+            <span data-i18n="importFilesBtn">＋ 批量导入 .NP3</span>
+            <input type="file" id="slotFilesInput" multiple>
           </label>
+          <button type="button" class="btn sm" id="btnImportFolder" data-i18n="importFolderBtn" title="选择一个包含多个 .NP3 / .cube 文件的文件夹批量导入">📁 导入文件夹</button>
           <button type="button" class="btn sm danger" id="btnClearAllExt" hidden data-i18n="clearAllBtn">清空</button>
         </div>
         <div class="progress-track" id="progressTrack" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
@@ -251,7 +291,7 @@ main{max-width:1440px;margin:auto;padding:16px 28px 28px}
       <div class="slot-grid" id="extSlotGrid"></div>
 
       <div class="panel-foot">
-        <span class="foot-hint" data-i18n="dragTip">拖拽卡片可互换位置 · 双击名称改名 · 拖入 .cube 自动转 NP3 / .rec 直接加载</span>
+        <span class="foot-hint" data-i18n="dragTip">拖拽卡片可互换位置 · 双击名称改名 · 可直接拖入多个 .NP3 / .cube / .zip 或整个文件夹</span>
         <div class="foot-controls">
           <div class="filter-pills">
             <button type="button" class="chip active" data-sfilter="all" id="sfAll" data-i18n="sfAll">全部</button>
@@ -282,8 +322,8 @@ main{max-width:1440px;margin:auto;padding:16px 28px 28px}
 
       <div class="lib-foot">
         <label class="drop-btn" id="libDrop">
-          <span data-i18n="libAddBtn">＋ 添加本地 .NP3 / .cube 到素材库</span>
-          <input type="file" id="libFileInput" accept=".np3,.cube" multiple>
+          <span data-i18n="libAddBtn">＋ 批量添加 .NP3 / .cube / .zip 或拖入文件夹</span>
+          <input type="file" id="libFileInput" multiple>
         </label>
         <div class="lib-actions">
           <button type="button" class="btn sm primary" style="flex:1" id="btnFillFilteredEmpty" data-i18n="fillFilteredBtn">填入当前列表到空槽</button>
@@ -296,7 +336,8 @@ main{max-width:1440px;margin:auto;padding:16px 28px 28px}
 
 <!-- Hidden pickers for cross-browser folder fallback and single-slot file replacement -->
 <input type="file" id="cardDirInput" webkitdirectory directory multiple hidden>
-<input type="file" id="singleSlotFileInput" accept=".np3,.cube" hidden>
+<input type="file" id="importFolderInput" webkitdirectory directory multiple hidden>
+<input type="file" id="singleSlotFileInput" hidden>
 
 <!-- Modal for Move / Copy / Swap Slot -->
 <div class="modal-backdrop" id="transferModal" hidden>
@@ -2593,7 +2634,72 @@ return {serialize, deserialize};
     return out;
   }
 
-  return { crc32, createZip };
+  async function inflateRawBytes(comp) {
+    if (typeof DecompressionStream === 'function') {
+      const ds = new DecompressionStream('deflate-raw');
+      const writer = ds.writable.getWriter();
+      writer.write(comp);
+      writer.close();
+      const buf = await new Response(ds.readable).arrayBuffer();
+      return new Uint8Array(buf);
+    }
+    if (typeof require === 'function') {
+      return new Uint8Array(require('node:zlib').inflateRawSync(comp));
+    }
+    throw new Error('当前浏览器不支持解压 Deflate ZIP，请先解压后再批量导入。');
+  }
+
+  /**
+   * Minimal pure-JS ZIP extractor supporting STORE (0) and DEFLATE (8).
+   * Returns [{ name, data: Uint8Array }].
+   */
+  async function extractZip(bytes) {
+    const u8 = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
+    const dv = new DataView(u8.buffer, u8.byteOffset, u8.byteLength);
+    const dec = new TextDecoder('utf-8');
+    // Find End of Central Directory (EOCD)
+    let eocdOff = -1;
+    const minOff = Math.max(0, u8.length - 65557);
+    for (let i = u8.length - 22; i >= minOff; i--) {
+      if (dv.getUint32(i, true) === 0x06054b50) {
+        eocdOff = i;
+        break;
+      }
+    }
+    if (eocdOff < 0) throw new Error('无效的 ZIP 压缩包。');
+    const totalEntries = dv.getUint16(eocdOff + 10, true);
+    let cdOff = dv.getUint32(eocdOff + 16, true);
+    const results = [];
+
+    for (let i = 0; i < totalEntries && cdOff + 46 <= u8.length; i++) {
+      if (dv.getUint32(cdOff, true) !== 0x02014b50) break;
+      const method = dv.getUint16(cdOff + 10, true);
+      const compSize = dv.getUint32(cdOff + 20, true);
+      const nameLen = dv.getUint16(cdOff + 28, true);
+      const extraLen = dv.getUint16(cdOff + 30, true);
+      const commentLen = dv.getUint16(cdOff + 32, true);
+      const localOff = dv.getUint32(cdOff + 42, true);
+      const name = dec.decode(u8.subarray(cdOff + 46, cdOff + 46 + nameLen));
+      cdOff += 46 + nameLen + extraLen + commentLen;
+
+      if (name.endsWith('/')) continue;
+      if (localOff + 30 > u8.length || dv.getUint32(localOff, true) !== 0x04034b50) continue;
+      const lhNameLen = dv.getUint16(localOff + 26, true);
+      const lhExtraLen = dv.getUint16(localOff + 28, true);
+      const dataStart = localOff + 30 + lhNameLen + lhExtraLen;
+      if (dataStart + compSize > u8.length) continue;
+      const slice = u8.subarray(dataStart, dataStart + compSize);
+
+      if (method === 0) {
+        results.push({ name, data: new Uint8Array(slice) });
+      } else if (method === 8) {
+        results.push({ name, data: await inflateRawBytes(slice) });
+      }
+    }
+    return results;
+  }
+
+  return { crc32, createZip, extractZip };
 });
 </script>
 <script>/* Nikon Z8 (Fenestra C32/C64) Memory Card Store (FENESTRA/SC*.REC) & NP3<->SC_RECORD Codec.
@@ -3601,16 +3707,17 @@ return {serialize, deserialize};
       bankVideoTab: '视频',
       syncBothLbl: '双通道同步',
       quick50Btn: `⚡ 一键灌入 ${BUILTIN_COUNT} 款`,
-      importFilesBtn: '＋ 导入文件',
+      importFilesBtn: '＋ 批量导入 .NP3',
+      importFolderBtn: '📁 导入文件夹',
       clearAllBtn: '清空',
       clearAllConfirm: '确认清空?',
-      dragTip: '拖拽卡片可互换位置 · 双击名称改名 · 拖入 .cube 自动转 NP3 / .rec 直接加载',
+      dragTip: '拖拽卡片可互换位置 · 双击名称改名 · 可直接拖入多个 .NP3 / .cube / .zip 或整个文件夹',
       sfAll: '全部',
       sfOcc: '已占用',
       sfEmp: '空闲',
       libTitle: '影创滤镜库',
       libSearchPh: '搜索滤镜…',
-      libAddBtn: '＋ 添加本地 .NP3 / .cube 到素材库',
+      libAddBtn: '＋ 批量添加 .NP3 / .cube / .zip 或拖入文件夹',
       fillFilteredBtn: '填入当前列表到空槽',
       exportNp3Btn: '↓ 导出 .NP3',
       modalTitle: '移动 / 复制 / 互换槽位',
@@ -3649,16 +3756,17 @@ return {serialize, deserialize};
       bankVideoTab: 'Video',
       syncBothLbl: 'Sync Both',
       quick50Btn: `⚡ Fill ${BUILTIN_COUNT} Looks`,
-      importFilesBtn: '＋ Import',
+      importFilesBtn: '＋ Batch .NP3',
+      importFolderBtn: '📁 Import Folder',
       clearAllBtn: 'Clear',
       clearAllConfirm: 'Confirm?',
-      dragTip: 'Drag cards to swap/move · Double-click name to rename · Drop .cube / .np3 / .rec',
+      dragTip: 'Drag cards to swap · Double-click name to rename · Drop multiple .NP3 / .cube / .zip or a folder',
       sfAll: 'All',
       sfOcc: 'Used',
       sfEmp: 'Empty',
       libTitle: 'Filter Library',
       libSearchPh: 'Search…',
-      libAddBtn: '＋ Add local .NP3 / .cube to library',
+      libAddBtn: '＋ Batch add .NP3 / .cube / .zip or drop folder',
       fillFilteredBtn: 'Fill Filtered to Empty Slots',
       exportNp3Btn: '↓ Export .NP3',
       modalTitle: 'Move / Copy / Swap Slot',
@@ -3770,10 +3878,12 @@ return {serialize, deserialize};
     tabBank0: $('tabBank0'),
     tabBank1: $('tabBank1'),
     syncBothBanks: $('syncBothBanks'),
+    slotsPanel: $('slotsPanel'),
     slotUsageText: $('slotUsageText'),
     statusMsg: $('statusMsg'),
     btnQuickFill50: $('btnQuickFill50'),
     slotFilesInput: $('slotFilesInput'),
+    btnImportFolder: $('btnImportFolder'),
     btnClearAllExt: $('btnClearAllExt'),
     progressTrack: $('progressTrack'),
     progressFill: $('progressFill'),
@@ -3791,6 +3901,7 @@ return {serialize, deserialize};
     btnFillFilteredEmpty: $('btnFillFilteredEmpty'),
     btnExportNp3Zip: $('btnExportNp3Zip'),
     cardDirInput: $('cardDirInput'),
+    importFolderInput: $('importFolderInput'),
     singleSlotFileInput: $('singleSlotFileInput'),
     transferModal: $('transferModal'),
     modalTitle: $('modalTitle'),
@@ -3895,6 +4006,7 @@ return {serialize, deserialize};
       els.btnOpenCard,
       els.btnSaveCard,
       els.btnQuickFill50,
+      els.btnImportFolder,
       els.btnClearAllExt,
       els.btnFillFilteredEmpty,
       els.slotLimitSelect,
@@ -4179,56 +4291,308 @@ return {serialize, deserialize};
   }
 
   // -------------------------------------------------------------------------
-  // Local .NP3 / .cube / .rec File Parsing
+  // Local .NP3 / .cube / .zip / Folder Batch Parsing
   // -------------------------------------------------------------------------
-  async function parseLocalFilterFiles(fileList) {
-    const files = Array.from(fileList || []).filter((f) => /\.(np3|cube)$/i.test(f.name));
-    if (!files.length) throw new Error(state.lang === 'zh' ? '请选择 .NP3、.cube 或 .rec 文件。' : 'Pick .NP3, .cube, or .rec files.');
-    const out = [];
-    for (let i = 0; i < files.length; i++) {
-      const f = files[i];
-      const ext = f.name.split('.').pop().toLowerCase();
-      if (ext === 'np3') {
-        const raw = new Uint8Array(await f.arrayBuffer());
-        const camName = sanitizeAsciiName(SC.extractNp3Name(raw) || f.name);
-        // Dry-run compile to fail fast if corrupt
-        SC.np3ToSlotRecord(raw, 10, 0, camName);
-        out.push({
-          id: 'local-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7),
-          name: f.name.replace(/\.np3$/i, ''),
-          nameEn: f.name.replace(/\.np3$/i, ''),
-          cameraName: camName,
-          group: '__local__',
-          np3: raw,
-          isLocal: true,
-        });
-      } else {
-        setProgress(Math.round(((i + 0.2) / files.length) * 90));
-        setStatus(
-          state.lang === 'zh'
-            ? `正在转换 ${f.name} (${i + 1}/${files.length})…`
-            : `Converting ${f.name} (${i + 1}/${files.length})…`,
-          'busy'
+  function isIgnoredMetaFile(name) {
+    const base = String(name || '').split(/[\\/]/).pop();
+    return !base || base.startsWith('._') || base === '.DS_Store' || base.toLowerCase() === 'thumbs.db';
+  }
+
+  async function readEntryFiles(entry, out, depth = 0) {
+    if (!entry || depth > 5) return;
+    if (entry.isFile) {
+      await new Promise((resolve) => {
+        entry.file(
+          (f) => {
+            if (f && !isIgnoredMetaFile(f.name)) out.push(f);
+            resolve();
+          },
+          () => resolve()
         );
-        await nextFrame();
-        const text = await f.text();
-        const cube = C.parseCube(text);
-        const fitRes = await C.fit(cube, { input: 'srgb', output: 'srgb', strength: 1 });
-        const camName = sanitizeAsciiName(cube.title || f.name);
-        const np3 = C.encodeNP3(fitRes.params, camName);
-        out.push({
-          id: 'local-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7),
-          name: f.name.replace(/\.cube$/i, ''),
-          nameEn: f.name.replace(/\.cube$/i, ''),
-          cameraName: camName,
-          group: '__local__',
-          np3,
-          isLocal: true,
-        });
-        setProgress(Math.round(((i + 1) / files.length) * 95));
+      });
+    } else if (entry.isDirectory) {
+      const reader = entry.createReader();
+      await new Promise((resolve) => {
+        const readNext = () => {
+          reader.readEntries(
+            async (entries) => {
+              if (!entries || !entries.length) {
+                resolve();
+                return;
+              }
+              for (const child of entries) await readEntryFiles(child, out, depth + 1);
+              readNext();
+            },
+            () => resolve()
+          );
+        };
+        readNext();
+      });
+    }
+  }
+
+  async function collectFilesFromDataTransfer(dt) {
+    const out = [];
+    if (dt && dt.items && dt.items.length && typeof dt.items[0].webkitGetAsEntry === 'function') {
+      const entries = [];
+      for (const item of Array.from(dt.items)) {
+        if (item.kind === 'file') {
+          const entry = item.webkitGetAsEntry();
+          if (entry) entries.push(entry);
+        }
+      }
+      for (const entry of entries) await readEntryFiles(entry, out, 0);
+      if (out.length) return out;
+    }
+    return Array.from((dt && dt.files) || []).filter((f) => f && !isIgnoredMetaFile(f.name));
+  }
+
+  async function collectFilesFromDirHandle(dirHandle, out = [], depth = 0) {
+    if (!dirHandle || depth > 5) return out;
+    for await (const entry of dirHandle.values()) {
+      if (isIgnoredMetaFile(entry.name)) continue;
+      if (entry.kind === 'file') {
+        if (/\.(np3|cube|zip|rec)$/i.test(entry.name)) {
+          out.push(await entry.getFile());
+        }
+      } else if (entry.kind === 'directory') {
+        await collectFilesFromDirHandle(entry, out, depth + 1);
       }
     }
     return out;
+  }
+
+  async function parseLocalFilterFiles(fileList) {
+    const rawInputs = Array.from(fileList || []).filter((f) => f && !isIgnoredMetaFile(f.name));
+    const candidates = [];
+    const skipped = [];
+
+    for (const f of rawInputs) {
+      const lower = f.name.toLowerCase();
+      if (lower.endsWith('.zip')) {
+        try {
+          const zipBytes = new Uint8Array(await f.arrayBuffer());
+          const entries = await Z8Zip.extractZip(zipBytes);
+          for (const ent of entries) {
+            const base = ent.name.split(/[\\/]/).pop();
+            if (isIgnoredMetaFile(base) || !/\.(np3|cube)$/i.test(base)) continue;
+            candidates.push({ name: base, bytes: ent.data });
+          }
+        } catch (err) {
+          skipped.push(`${f.name} (${err.message || err})`);
+        }
+      } else if (/\.(np3|cube)$/i.test(lower)) {
+        candidates.push({ name: f.name, file: f });
+      }
+    }
+
+    candidates.sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' }));
+
+    if (!candidates.length) {
+      throw new Error(
+        skipped.length
+          ? skipped[0]
+          : state.lang === 'zh'
+            ? '未找到有效的 .NP3、.cube 或包含 .NP3 的 .zip 文件。'
+            : 'No valid .NP3, .cube, or .zip filter files found.'
+      );
+    }
+
+    const items = [];
+    const total = candidates.length;
+    for (let i = 0; i < total; i++) {
+      const c = candidates[i];
+      const ext = c.name.split('.').pop().toLowerCase();
+      try {
+        if (ext === 'np3') {
+          if (total > 3 && (i === 0 || (i + 1) % 5 === 0 || i === total - 1)) {
+            setProgress(Math.round(((i + 1) / total) * 45));
+            setStatus(
+              state.lang === 'zh'
+                ? `正在解析 .NP3 (${i + 1}/${total}) · ${c.name}…`
+                : `Parsing .NP3 (${i + 1}/${total}) · ${c.name}…`,
+              'busy'
+            );
+            await nextFrame();
+          }
+          const raw = c.bytes ? c.bytes : new Uint8Array(await c.file.arrayBuffer());
+          const camName = sanitizeAsciiName(SC.extractNp3Name(raw) || c.name);
+          // Dry-run compile to fail fast if corrupt
+          SC.np3ToSlotRecord(raw, 10, 0, camName);
+          items.push({
+            id: 'local-' + Date.now() + '-' + i + '-' + Math.random().toString(36).slice(2, 6),
+            name: c.name.replace(/\.np3$/i, ''),
+            nameEn: c.name.replace(/\.np3$/i, ''),
+            cameraName: camName,
+            group: '__local__',
+            np3: raw,
+            isLocal: true,
+          });
+        } else {
+          setProgress(Math.round(((i + 0.2) / total) * 90));
+          setStatus(
+            state.lang === 'zh'
+              ? `正在转换 ${c.name} (${i + 1}/${total})…`
+              : `Converting ${c.name} (${i + 1}/${total})…`,
+            'busy'
+          );
+          await nextFrame();
+          const text = c.bytes ? new TextDecoder('utf-8').decode(c.bytes) : await c.file.text();
+          const cube = C.parseCube(text);
+          const fitRes = await C.fit(cube, { input: 'srgb', output: 'srgb', strength: 1 });
+          const camName = sanitizeAsciiName(cube.title || c.name);
+          const np3 = C.encodeNP3(fitRes.params, camName);
+          items.push({
+            id: 'local-' + Date.now() + '-' + i + '-' + Math.random().toString(36).slice(2, 6),
+            name: c.name.replace(/\.cube$/i, ''),
+            nameEn: c.name.replace(/\.cube$/i, ''),
+            cameraName: camName,
+            group: '__local__',
+            np3,
+            isLocal: true,
+          });
+          setProgress(Math.round(((i + 1) / total) * 95));
+        }
+      } catch (err) {
+        skipped.push(`${c.name} (${err.message || err})`);
+      }
+    }
+
+    if (!items.length) {
+      throw new Error(skipped[0] || (state.lang === 'zh' ? '所有文件均无法解析。' : 'Failed to parse selected files.'));
+    }
+    return { items, skipped };
+  }
+
+  async function importBatchFilesIntoSlots(rawFiles, startSlot = null) {
+    const files = Array.from(rawFiles || []).filter((f) => f && !isIgnoredMetaFile(f.name));
+    if (!files.length) return;
+    const recFiles = files.filter((f) => /\.rec$/i.test(f.name));
+    if (recFiles.length && !files.some((f) => /\.(np3|cube|zip)$/i.test(f.name))) {
+      try {
+        await loadRecFilesList(recFiles);
+      } catch (err) {
+        setStatus(err.message || String(err), 'error');
+      }
+      return;
+    }
+
+    setBusy(true);
+    try {
+      const { items: parsed, skipped } = await parseLocalFilterFiles(files);
+      addItemsToLibrary(parsed);
+      const limit = getActiveLimit();
+      const batch = [];
+      const explicitStart = startSlot !== null ? startSlot : state.focusedSlot;
+      let cursor = explicitStart || 10;
+      for (const item of parsed) {
+        if (!explicitStart) {
+          while (cursor <= limit && getSlotRecordInfo(cursor).valid) cursor++;
+        }
+        if (cursor > limit) break;
+        batch.push({ slot: cursor, name: item.cameraName, np3: item.np3 });
+        cursor++;
+      }
+      setBusy(false);
+
+      const skipNote = skipped.length
+        ? state.lang === 'zh'
+          ? `（跳过 ${skipped.length} 个无效文件）`
+          : ` (${skipped.length} skipped)`
+        : '';
+      const overflowCount = parsed.length - batch.length;
+      const overflowNote = overflowCount > 0
+        ? state.lang === 'zh'
+          ? `，另有 ${overflowCount} 个已存入右侧素材库`
+          : `, ${overflowCount} more added to library`
+        : '';
+
+      if (!batch.length) {
+        finishProgress(true);
+        state.libGroup = '__local__';
+        setStatus(
+          state.lang === 'zh'
+            ? `已加入 ${parsed.length} 个到右侧「本地添加」，左侧已无空槽${skipNote}`
+            : `Added ${parsed.length} to library (no empty slots left)${skipNote}`,
+          'error'
+        );
+        renderAll();
+        return;
+      }
+
+      const summary =
+        batch.length === 1
+          ? `C-${batch[0].slot} ← ${batch[0].name}${skipNote}`
+          : state.lang === 'zh'
+            ? `已批量导入 ${batch.length} 个滤镜到 C-${batch[0].slot}~C-${batch[batch.length - 1].slot}${overflowNote}${skipNote}`
+            : `Imported ${batch.length} filters into C-${batch[0].slot}–C-${batch[batch.length - 1].slot}${overflowNote}${skipNote}`;
+      await writeItemsToSlots(batch, summary);
+    } catch (err) {
+      setBusy(false);
+      finishProgress(false);
+      setStatus(err && err.message ? err.message : String(err), 'error');
+    }
+  }
+
+  async function importBatchFilesIntoLibrary(rawFiles) {
+    const files = Array.from(rawFiles || []).filter((f) => f && !isIgnoredMetaFile(f.name));
+    if (!files.length) return;
+    setBusy(true);
+    try {
+      const { items: parsed, skipped } = await parseLocalFilterFiles(files);
+      addItemsToLibrary(parsed);
+      state.libGroup = '__local__';
+      setBusy(false);
+      finishProgress(true);
+      const skipNote = skipped.length
+        ? state.lang === 'zh'
+          ? `（跳过 ${skipped.length} 个无效文件）`
+          : ` (${skipped.length} skipped)`
+        : '';
+      setStatus(
+        state.lang === 'zh'
+          ? `已批量添加 ${parsed.length} 个滤镜到「本地添加」${skipNote}，可点下方「填入当前列表到空槽」`
+          : `Added ${parsed.length} filter(s) to Local Files${skipNote}`,
+        'ok'
+      );
+      renderAll();
+    } catch (err) {
+      setBusy(false);
+      finishProgress(false);
+      setStatus(err && err.message ? err.message : String(err), 'error');
+    }
+  }
+
+  async function handleImportFolderClick() {
+    if (state.busy) return;
+    const canPickNativeDir = typeof window.showDirectoryPicker === 'function' && window.isSecureContext;
+    if (!canPickNativeDir) {
+      els.importFolderInput.value = '';
+      els.importFolderInput.click();
+      return;
+    }
+    try {
+      const dirHandle = await window.showDirectoryPicker({ mode: 'read' });
+      const collected = await collectFilesFromDirHandle(dirHandle);
+      if (!collected.length) {
+        setStatus(
+          state.lang === 'zh'
+            ? '所选文件夹中未找到 .NP3 / .cube / .zip 文件。'
+            : 'No .NP3, .cube, or .zip files found in folder.',
+          'error'
+        );
+        return;
+      }
+      await importBatchFilesIntoSlots(collected, null);
+    } catch (err) {
+      if (err && err.name === 'AbortError') return;
+      if (err && err.name === 'SecurityError') {
+        els.importFolderInput.value = '';
+        els.importFolderInput.click();
+        return;
+      }
+      setStatus(err && err.message ? err.message : String(err), 'error');
+    }
   }
 
   function addItemsToLibrary(newItems) {
@@ -4539,7 +4903,9 @@ return {serialize, deserialize};
         card.addEventListener('dragleave', () => card.classList.remove('drag-over'));
         card.addEventListener('drop', (e) => {
           e.preventDefault();
+          e.stopPropagation();
           card.classList.remove('drag-over');
+          els.slotsPanel.classList.remove('panel-drag');
           handleDropOnSlot(slot, e.dataTransfer);
         });
         card.addEventListener('click', (e) => {
@@ -4813,31 +5179,9 @@ return {serialize, deserialize};
       return;
     }
 
-    if (dt.files && dt.files.length > 0) {
-      const recs = Array.from(dt.files).filter((f) => /\.rec$/i.test(f.name));
-      if (recs.length) {
-        try {
-          await loadRecFilesList(recs);
-        } catch (err) {
-          setStatus(err.message || String(err), 'error');
-        }
-        return;
-      }
-      state.busy = true;
-      try {
-        const parsed = await parseLocalFilterFiles(dt.files);
-        addItemsToLibrary(parsed);
-        const limit = getActiveLimit();
-        const batch = [];
-        for (let i = 0; i < parsed.length && targetSlot + i <= limit; i++) {
-          batch.push({ slot: targetSlot + i, name: parsed[i].cameraName, np3: parsed[i].np3 });
-        }
-        state.busy = false;
-        await writeItemsToSlots(batch, `C-${batch[0].slot} ← ${batch[0].name}`);
-      } catch (err) {
-        state.busy = false;
-        setStatus(err.message || String(err), 'error');
-      }
+    const dropped = await collectFilesFromDataTransfer(dt);
+    if (dropped.length > 0) {
+      await importBatchFilesIntoSlots(dropped, targetSlot);
     }
   }
 
@@ -4982,49 +5326,42 @@ return {serialize, deserialize};
     });
 
     els.btnQuickFill50.addEventListener('click', handleQuickFill50);
+    els.btnImportFolder.addEventListener('click', handleImportFolderClick);
 
     els.slotFilesInput.addEventListener('change', async () => {
       if (!els.slotFilesInput.files || !els.slotFilesInput.files.length) return;
       const files = Array.from(els.slotFilesInput.files);
       els.slotFilesInput.value = '';
-      const recFiles = files.filter((f) => /\.rec$/i.test(f.name));
-      if (recFiles.length) {
-        try {
-          await loadRecFilesList(recFiles);
-        } catch (err) {
-          setStatus(err.message || String(err), 'error');
-        }
-        return;
-      }
+      await importBatchFilesIntoSlots(files, null);
+    });
 
-      setBusy(true);
-      try {
-        const parsed = await parseLocalFilterFiles(files);
-        addItemsToLibrary(parsed);
-        const limit = getActiveLimit();
-        const batch = [];
-        let cursor = state.focusedSlot || 10;
-        for (const item of parsed) {
-          if (!state.focusedSlot) {
-            while (cursor <= limit && getSlotRecordInfo(cursor).valid) cursor++;
-          }
-          if (cursor > limit) break;
-          batch.push({ slot: cursor, name: item.cameraName, np3: item.np3 });
-          cursor++;
-        }
-        setBusy(false);
-        if (!batch.length) {
-          finishProgress(true);
-          setStatus(state.lang === 'zh' ? '已加入右侧素材库，但左侧已无空槽。' : 'Added to library; no empty slots left.', 'error');
-          renderAll();
-          return;
-        }
-        await writeItemsToSlots(batch, state.lang === 'zh' ? `已导入 ${batch.length} 个本地滤镜` : `Imported ${batch.length} files`);
-      } catch (err) {
-        setBusy(false);
-        finishProgress(false);
-        setStatus(err.message || String(err), 'error');
+    els.importFolderInput.addEventListener('change', async () => {
+      if (!els.importFolderInput.files || !els.importFolderInput.files.length) return;
+      const files = Array.from(els.importFolderInput.files);
+      els.importFolderInput.value = '';
+      await importBatchFilesIntoSlots(files, null);
+    });
+
+    // Whole left panel drag-and-drop for multiple .NP3 / .cube / .zip files or folders
+    els.slotsPanel.addEventListener('dragover', (e) => {
+      const types = Array.from((e.dataTransfer && e.dataTransfer.types) || []);
+      if (types.includes('Files')) {
+        e.preventDefault();
+        els.slotsPanel.classList.add('panel-drag');
       }
+    });
+    els.slotsPanel.addEventListener('dragleave', (e) => {
+      if (!e.relatedTarget || (els.slotsPanel.contains && !els.slotsPanel.contains(e.relatedTarget))) {
+        els.slotsPanel.classList.remove('panel-drag');
+      }
+    });
+    els.slotsPanel.addEventListener('drop', async (e) => {
+      els.slotsPanel.classList.remove('panel-drag');
+      if (!e.dataTransfer) return;
+      if (e.dataTransfer.getData('text/x-z8-slot') || e.dataTransfer.getData('text/x-z8-preset')) return;
+      e.preventDefault();
+      const dropped = await collectFilesFromDataTransfer(e.dataTransfer);
+      if (dropped.length) await importBatchFilesIntoSlots(dropped, null);
     });
 
     els.btnClearAllExt.addEventListener('click', () => {
@@ -5067,35 +5404,16 @@ return {serialize, deserialize};
     els.libDrop.addEventListener('drop', async (e) => {
       e.preventDefault();
       els.libDrop.classList.remove('drag');
-      if (!e.dataTransfer || !e.dataTransfer.files || !e.dataTransfer.files.length) return;
-      try {
-        const parsed = await parseLocalFilterFiles(e.dataTransfer.files);
-        addItemsToLibrary(parsed);
-        state.libGroup = 'all';
-        finishProgress(true);
-        setStatus(state.lang === 'zh' ? `已添加 ${parsed.length} 个滤镜到素材库` : `Added ${parsed.length} to library`, 'ok');
-        renderAll();
-      } catch (err) {
-        finishProgress(false);
-        setStatus(err.message || String(err), 'error');
-      }
+      if (!e.dataTransfer) return;
+      const dropped = await collectFilesFromDataTransfer(e.dataTransfer);
+      if (dropped.length) await importBatchFilesIntoLibrary(dropped);
     });
 
     els.libFileInput.addEventListener('change', async () => {
       if (!els.libFileInput.files || !els.libFileInput.files.length) return;
       const files = Array.from(els.libFileInput.files);
       els.libFileInput.value = '';
-      try {
-        const parsed = await parseLocalFilterFiles(files);
-        addItemsToLibrary(parsed);
-        state.libGroup = 'all';
-        finishProgress(true);
-        setStatus(state.lang === 'zh' ? `已添加 ${parsed.length} 个滤镜到素材库` : `Added ${parsed.length} to library`, 'ok');
-        renderAll();
-      } catch (err) {
-        finishProgress(false);
-        setStatus(err.message || String(err), 'error');
-      }
+      await importBatchFilesIntoLibrary(files);
     });
 
     els.singleSlotFileInput.addEventListener('change', async () => {
@@ -5105,10 +5423,11 @@ return {serialize, deserialize};
       els.singleSlotFileInput.value = '';
       els.replaceModal.hidden = true;
       try {
-        const parsed = await parseLocalFilterFiles([file]);
+        const { items: parsed } = await parseLocalFilterFiles([file]);
         addItemsToLibrary(parsed);
         await writeItemsToSlots([{ slot: target, name: parsed[0].cameraName, np3: parsed[0].np3 }], `C-${target} ← ${parsed[0].cameraName}`);
       } catch (err) {
+        finishProgress(false);
         setStatus(err.message || String(err), 'error');
       }
     });
