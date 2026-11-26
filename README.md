@@ -23,9 +23,9 @@
 * **一屏管理全部 55 个扩展槽（`C-10`～`C-64`）**：
   * 5 列紧凑胶囊矩阵，同屏查看全部照片 / 视频通道槽位，支持 **双通道同步** 或分通道独立管理，可切换 **C64 / C32** 容量上限。
   * **行内快捷操作**：设开机默认（`★`）、改名（`✎` 或直接双击名称，1–19 个 ASCII 字符）、拖拽卡片互换位置（或点击 `⇄` 移动/复制/互换）、清空/删除（`×`，自动写入同步索引，断电重启不复活）。
-* **内置 34 款 MIT 开源胶片预设 + 批量导入 `.NP3` / `.cube` / `.zip` / 文件夹**：
-  * 支持 **「⚡ 一键灌入 34 款」** 或 **「填入当前列表到空槽」**（自动跳过已有滤镜，保留原槽位），附带逐批写入进度动画与写卡状态提示。
-  * 支持 **「＋ 批量导入 .NP3」**（多选文件）、**「📁 导入文件夹」**（递归读取文件夹内全部 `.NP3` / `.cube`）、以及直接将多个 `.NP3` / `.cube` / `.zip` 滤镜包或整个文件夹拖到左侧槽位面板任意空白处一键批量填入空槽（自动跳过 macOS `._*` 隐藏文件并按文件名自然排序；`.cube` 在浏览器本地通过 [`lut-to-np3 v1.3.3`](https://github.com/YCX81/lut-to-np3) 基于尼康标准（`SD`）基准自动拟合为 Flexible Color `0310` `.NP3`，还原准确的实机反差与暗部层次）。
+* **内置 39 款 MIT 开源胶片预设 + 批量导入 `.NP3` / `.cube` / `.zip` / 文件夹**：
+  * 支持 **「⚡ 一键灌入 39 款」** 或 **「填入当前列表到空槽」**（自动跳过已有滤镜，保留原槽位），附带逐批写入进度动画与写卡状态提示。
+  * 支持 **「＋ 批量导入 .NP3」**（多选文件）、**「📁 导入文件夹」**（递归读取文件夹内全部 `.NP3` / `.cube`）、以及直接将多个 `.NP3` / `.cube` / `.zip` 滤镜包或整个文件夹拖到左侧槽位面板任意空白处一键批量填入空槽（自动跳过 macOS `._*` 隐藏文件并按文件名自然排序；`.cube` 在浏览器本地通过 [`lut-to-np3 v1.3.4`](https://github.com/YCX81/lut-to-np3) 基于尼康标准（`SD`）基准自动拟合为 Flexible Color `0310` `.NP3`，同步补偿亮度曲线与 1.25× 色度）。
 * **标准 `.NP3` 打包导出**：点击右下角 **「↓ 导出 .NP3」** 可将卡中已有或当前筛选的滤镜一键打包为标准 `NIKON/CUSTOMPC/PICCON01.NP3`～`PICCON99.NP3` + `SLOT-MAP.txt`，兼容尼康工坊（NX Studio）及支持 Flexible Color 的原厂尼康机身。
 
 ### 使用方法
@@ -34,15 +34,15 @@
 2. 将相机存储卡插入电脑读卡器，点击右上角 **「📂 打开卡内 FENESTRA」**，**点进存储卡里的 `FENESTRA` 文件夹后确认**（请勿选整张存储卡根目录）。
 3. 编排滤镜槽：
    * 保留原有滤镜并批量补齐：点右下角 **「填入当前列表到空槽」**；
-   * 从 `C-10` 起一键覆盖灌入：点 **「⚡ 一键灌入 34 款」**；
+   * 从 `C-10` 起一键覆盖灌入：点 **「⚡ 一键灌入 39 款」**；
    * 导入自定义风格：直接将 `.NP3` 或 `.cube` 文件拖入左侧任意槽位。
 4. Chrome / Edge 直连模式下每次改动已自动落盘（顶部绿色徽章显示最新 `head` 代数）；安全弹出存储卡、插回相机开机，即可在照片／视频的「设定优化校准」中直接使用。
 
 > **双卡槽机身提示（如 Nikon Z8）**：若机身同时插着 CFexpress（A 槽）与 SD 卡（B 槽），且两张卡上都存在 `FENESTRA/` 目录，相机开机时会优先加载 **A 槽（CFexpress）** 的 `FENESTRA/`；请对实际生效的那张卡进行编辑。
 
-### 内置开源预设（34 款 · 全部 MIT 许可）
+### 内置开源预设（39 款 · 全部 MIT 许可）
 
-> 以上 34 款内置预设与拖拽导入 `.cube` 拟合均采用 [`lut-to-np3 v1.3.3`](https://github.com/YCX81/lut-to-np3) **尼康标准（`SD`）基准**，确保实机反差与暗部层次准确。
+> 以上 39 款内置预设与拖拽导入 `.cube` 拟合均采用 [`lut-to-np3 v1.3.4`](https://github.com/YCX81/lut-to-np3) **尼康标准（`SD`）基准**（含 1.25× BT.601 色度补偿），确保实机反差、暗部层次与饱和度准确。
 
 | 分类 | 预设列表 |
 | :--- | :--- |
@@ -50,6 +50,7 @@
 | **电影胶片与印片（5）** | Kodak Vision3 50D / 2383、Vision3 250D / 2383、Vision3 500T / 2383、CineStill 800T (5219)、Fuji Eterna Vivid / 3513 |
 | **GRKit 同源配方（6）** | Kodak Aerocolor IV、Fuji Eterna 500T / 3523XD、Kodak Tri-X 400、Tri-X 红滤镜、Eastman Double-X 5222、Ilford HP5 Plus 400 |
 | **经典胶卷精选（19）** | Portra 160、Portra 400、Portra 800、Gold 200、Ektar 100、Ektachrome E100D、Kodachrome 64、Fuji Pro 160C、Pro 400H、Fuji Pro 800Z、Provia 400X、Astia 100F、Velvia 50、Acros 100、Agfa Vista 200、Agfa Precisa 100、Kodak T-Max 400、Ilford Delta 100、Ilford XP2 |
+| **油润浓郁精选（5）** | Kodak 2393 院线印片、Fuji Fortia SP 50、Kodak Portra 400 VC、Agfa Ultra 100、Superia X-TRA 400 |
 
 #### 更多厂商官方 LUT（可自行下载后直接拖入）
 
@@ -68,6 +69,7 @@
 * [`GRKit`](https://github.com/ahonn/GRKit) — Copyright (c) ahonn (**MIT**)。
 * [`t3mujinpack`](https://github.com/t3mujinpack/t3mujinpack) — Copyright (c) João Almeida (**MIT**)。
 * [`Film-Luts`](https://github.com/YahiaAngelo/Film-Luts) — Copyright (c) Yahia Angelo (**MIT**)。
+* [`derby-film`](https://github.com/joinfiber/derby-film) — Copyright (c) 2026 Derby contributors (**MIT**)。
 
 ---
 
@@ -90,9 +92,9 @@ No USB drivers, bridge daemons, or CLI required: launch directly via **[GitHub P
 * **All 55 Extended Slots (`C-10`–`C-64`) on One Screen**:
   * Compact 5-column pill grid for Photo & Video banks with **Sync Both** or independent per-bank editing, plus **C64 / C32** slot capacity selector.
   * **Inline Micro-Actions**: Set boot default (`★`), double-click or click `✎` to rename (`1–19` ASCII chars), drag-and-drop cards to swap (or click `⇄` to move/copy/swap), and delete (`×`, updates the `sc*.rec` generation index cleanly).
-* **34 Built-in MIT-Licensed Film Presets + Batch `.NP3` / `.cube` / `.zip` / Folder Import**:
-  * Click **⚡ Fill 34 Looks** or **Fill Filtered to Empty Slots** (preserves existing slots automatically) with smooth animated staging & card-write progress feedback.
-  * Batch import via **＋ Batch .NP3** (multi-file select), **📁 Import Folder** (recursively scans folders for `.NP3` / `.cube` files), or drag-and-drop multiple `.NP3` / `.cube` / `.zip` packs or an entire folder anywhere onto the slot panel (auto-sorts naturally, skips macOS `._*` junk files, and fits `.cube` LUTs to Flexible Color `0310` `.NP3` locally via [`lut-to-np3 v1.3.3`](https://github.com/YCX81/lut-to-np3) on the Nikon Standard (`SD`) baseline for accurate in-camera contrast and shadow depth).
+* **39 Built-in MIT-Licensed Film Presets + Batch `.NP3` / `.cube` / `.zip` / Folder Import**:
+  * Click **⚡ Fill 39 Looks** or **Fill Filtered to Empty Slots** (preserves existing slots automatically) with smooth animated staging & card-write progress feedback.
+  * Batch import via **＋ Batch .NP3** (multi-file select), **📁 Import Folder** (recursively scans folders for `.NP3` / `.cube` files), or drag-and-drop multiple `.NP3` / `.cube` / `.zip` packs or an entire folder anywhere onto the slot panel (auto-sorts naturally, skips macOS `._*` junk files, and fits `.cube` LUTs to Flexible Color `0310` `.NP3` locally via [`lut-to-np3 v1.3.4`](https://github.com/YCX81/lut-to-np3) on the Nikon Standard (`SD`) baseline with calibrated 1.25× chroma compensation).
 * **Standard `.NP3` Pack Export**: Click **↓ Export .NP3** to export active slots or filtered library items as standard `NIKON/CUSTOMPC/PICCON01.NP3`–`PICCON99.NP3` + `SLOT-MAP.txt`, compatible with **Nikon NX Studio** and stock Flexible Color Nikon bodies.
 
 ### Quick Start
@@ -101,15 +103,15 @@ No USB drivers, bridge daemons, or CLI required: launch directly via **[GitHub P
 2. Insert your camera memory card into a card reader, click **📂 Open Card FENESTRA**, and select the **`FENESTRA`** subfolder inside the card *(do not pick the drive root)*.
 3. Organize your slots:
    * Keep existing custom slots and append presets: click **Fill Filtered to Empty Slots**;
-   * Batch fill from `C-10`: click **⚡ Fill 34 Looks**;
+   * Batch fill from `C-10`: click **⚡ Fill 39 Looks**;
    * Add your own looks: drag `.NP3` or `.cube` files directly onto any slot.
 4. In Chrome / Edge live R/W mode, every edit is flushed automatically (the green header pill tracks the active `head` generation). Safely eject the card, insert it into your camera, and power on.
 
 > **Dual-Slot Camera Note (e.g., Nikon Z8)**: When both CFexpress (Slot A) and SD (Slot B) cards are inserted and both contain a `FENESTRA/` folder, the camera prioritizes **Slot A (CFexpress)** at boot. Make sure you edit the `FENESTRA/` folder on the card your camera boots from.
 
-### Built-in Presets (34 · All MIT-Licensed)
+### Built-in Presets (39 · All MIT-Licensed)
 
-> All 34 built-in presets and drag-and-drop `.cube` LUT fitting use the [`lut-to-np3 v1.3.3`](https://github.com/YCX81/lut-to-np3) **Nikon Standard (`SD`) baseline** for accurate in-camera contrast and shadow depth.
+> All 39 built-in presets and drag-and-drop `.cube` LUT fitting use the [`lut-to-np3 v1.3.4`](https://github.com/YCX81/lut-to-np3) **Nikon Standard (`SD`) baseline** (with calibrated 1.25× BT.601 chroma compensation) for accurate in-camera contrast, shadow depth, and color saturation.
 
 | Category | Presets |
 | :--- | :--- |
@@ -117,6 +119,7 @@ No USB drivers, bridge daemons, or CLI required: launch directly via **[GitHub P
 | **Cinema & Print Film (5)** | Kodak Vision3 50D / 2383, Vision3 250D / 2383, Vision3 500T / 2383, CineStill 800T (5219), Fuji Eterna Vivid / 3513 |
 | **GRKit Film Recipes (6)** | Kodak Aerocolor IV, Fuji Eterna 500T / 3523XD, Kodak Tri-X 400, Tri-X / Red Filter, Eastman Double-X 5222, Ilford HP5 Plus 400 |
 | **Classic Film Stocks (19)** | Portra 160, Portra 400, Portra 800, Gold 200, Ektar 100, Ektachrome E100D, Kodachrome 64, Fuji Pro 160C, Pro 400H, Fuji Pro 800Z, Provia 400X, Astia 100F, Velvia 50, Acros 100, Agfa Vista 200, Agfa Precisa 100, Kodak T-Max 400, Ilford Delta 100, Ilford XP2 |
+| **Rich & Glossy Film (5)** | Kodak 2393 Print, Fuji Fortia SP 50, Kodak Portra 400 VC, Agfa Ultra 100, Superia X-TRA 400 |
 
 #### Official Vendor LUTs (Download Separately)
 
@@ -135,3 +138,4 @@ Released under the **MIT License**. This project incorporates and complies with 
 * [`GRKit`](https://github.com/ahonn/GRKit) — Copyright (c) ahonn (**MIT**).
 * [`t3mujinpack`](https://github.com/t3mujinpack/t3mujinpack) — Copyright (c) João Almeida (**MIT**).
 * [`Film-Luts`](https://github.com/YahiaAngelo/Film-Luts) — Copyright (c) Yahia Angelo (**MIT**).
+* [`derby-film`](https://github.com/joinfiber/derby-film) — Copyright (c) 2026 Derby contributors (**MIT**).
